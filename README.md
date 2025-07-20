@@ -36,13 +36,13 @@ This project sets up a **PHP-based web interface** that:
 ### 1. Build the Docker Image
 
 ```bash
-docker build -t php-mail .
+sudo docker build -t php-mail .
 ```
 
 ### 2. Run the Container
 
 ```bash
-docker run -p 8080:80 --name php-mail-frontend --privileged php-mail
+sudo docker run -p 8080:80 --name php-mail-frontend --privileged php-mail
 ```
 
 * The `--privileged` flag is required to create system users inside the container.
@@ -66,7 +66,7 @@ http://localhost:8080
 ## Check User Mail
 
 ```bash
-docker exec -it php-mail-frontend bash
+sudo docker exec -it php-mail-frontend bash
 su - <username>
 cat Maildir/new/*
 ```
@@ -108,9 +108,9 @@ cat Maildir/new/*
 To completely remove everything:
 
 ```bash
-docker stop php-mail-frontend
-docker rm php-mail-frontend
-docker rmi php-mail
+sudo docker stop php-mail-frontend
+sudo docker rm php-mail-frontend
+sudo docker rmi php-mail
 ```
 
 ---
