@@ -9,7 +9,7 @@ $raw_password = trim($_POST['password']);
 
 // Allow only a-z, A-Z, 0-9, _, -
 if (!preg_match('/^[a-zA-Z0-9_-]{3,32}$/', $raw_username)) {
-    echo "<pre>Error: Invalid username. Use 3–32 characters: letters, numbers, underscores, or dashes only.</pre>";
+    echo "<pre>Error: Invalid username. Use 3-32 characters: letters, numbers, underscores, or dashes only.</pre>";
     exit;
 }
 
@@ -35,7 +35,8 @@ $cmd = "sudo /usr/local/bin/adduser_web.sh $username $encrypted_password 2>&1";
 $output = shell_exec($cmd);
 
 // Send welcome mail
-mail("$raw_username@localhost", "Welcome", "Hello and welcome!");
+// mail("$raw_username@localhost", "Welcome", "Hello and welcome!");
+mail(trim($_POST['username']) . "@localhost", "Welcome", "Hello and welcome!");
 
 echo "<pre>User creation output:\n$output</pre>";
 ?>
