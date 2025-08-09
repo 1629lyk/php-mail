@@ -35,7 +35,6 @@ $cmd = "sudo /usr/local/bin/adduser_web.sh $username $encrypted_password 2>&1";
 $output = shell_exec($cmd);
 
 // Send welcome mail
-// mail("$raw_username@localhost", "Welcome", "Hello and welcome!");
 mail(trim($_POST['username']) . "@localhost", "Welcome", "Hello and welcome!");
 
 echo "<pre>User creation output:\n$output</pre>";
